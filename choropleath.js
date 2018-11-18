@@ -1,12 +1,13 @@
 $(document)
     .ready(function () {
+        // Define body
         var body = d3.select("body");
-        // define body
+
         var svg = d3.select("svg"),
             width = +svg.attr("width"),
             height = +svg.attr("height");
 
-        // define tooltip
+        // Define the div for the tooltip
         var tooltip = body
             .append("div")
             .attr("class", "tooltip")
@@ -14,10 +15,11 @@ $(document)
             .style("opacity", 0);
 
         var unemployment = d3.map();
-        var path = d3.geopath();
+
+        var path = d3.geoPath();
 
         var x = d3
-            .scaleLiner()
+            .scaleLinear()
             .domain([2.6, 75.1])
             .rangeRound([600, 860]);
 
@@ -155,5 +157,4 @@ $(document)
                 .attr("class", "states")
                 .attr("d", path);
         }
-
     });
